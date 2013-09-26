@@ -1,0 +1,18 @@
+<h4><%= @user.name.capitalize %> Profile</h4>
+
+<form action="/create_skill/<%=@user.id %>" method="POST">
+    Add Skill: <input type="text" name="name"> 
+    Add Context: <input type="text" name="context"> 
+    Number of Years: <input type="integer" name="experience"> 
+    <input type="submit" value="submit">
+</form> 
+
+  <h2> Skills and Years</h2>
+  <ul>
+    <% @user.proficiencies.each do |pro| %>
+    <li><%= pro.skill.name %>  <%=pro.experience%></li>  
+    <% end %>
+  </ul> 
+
+<h3><a href='/'>Home</a></h3>
+<h3><a href='/logout'>Log Out</a></h3>

@@ -1,9 +1,12 @@
 class Skill < ActiveRecord::Base
+  has_many :proficiencies
+  has_many :users, through: :proficiencies
+
+  
   VALID_CONTEXTS = %w(technical creative)
 
   validates :name, :presence => true
   validate :validate_context
-
   private
   def validate_context
     p self.context

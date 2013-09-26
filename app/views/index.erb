@@ -1,5 +1,13 @@
 <div class="container">
   <h1>User Skills and Levels</h1>
-
+  <h2> Skills and Years</h2>
+  <ul>
+    <% @users.each do |user| %>
+    <li>Name: <%= user.name%> Skill: <%= user.proficiencies.first.skill.name %> Years:       <%=user.proficiencies.first.experience%></li>  
+    <% end %>
+  </ul> 
+  <%if session[:id]%>
+    <h3><a href="/profile_page/<%= @user.id %>"> Profile Page</a> </h3>
+  <% end %>
   <%# TODO: display the skills and proficiency levels for each user ... %>
 </div>
